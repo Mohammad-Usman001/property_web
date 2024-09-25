@@ -1,0 +1,588 @@
+.animated { -webkit-animation-duration: 1s; animation-duration: 1s; -webkit-animation-fill-mode: both; animation-fill-mode: both; }
+@-webkit-keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+@keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+.fadeIn { -webkit-animation-name: fadeIn; animation-name: fadeIn; }
+@-webkit-keyframes fadeInUp {
+	from { opacity: 0; -webkit-transform: translate3d(0, 30px, 0); transform: translate3d(0, 30px, 0); }
+	to { opacity: 1; -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+}
+@keyframes fadeInUp {
+	from { opacity: 0; -webkit-transform: translate3d(0, 30px, 0); transform: translate3d(0, 30px, 0); }
+	to { opacity: 1; -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+}
+.fadeInUp { -webkit-animation-name: fadeInUp; animation-name: fadeInUp; }
+
+/*@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}*/
+@keyframes mover {
+	0% { transform: translateY(0); }
+	100% { transform: translateY(-20px); }
+}
+@keyframes down-up {
+	0% { transform: translateY(0); }
+	100% { transform: translateY(20px); }
+}
+@keyframes moveInCircle {
+	0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+	100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+
+/* ===============================Animate CSS END===============================*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+h2 , h3 , h4, h5 {
+    font-family: 'Playfair Display', serif;
+}
+body{
+    
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    word-spacing: 1px;
+}
+ol, ul {
+    padding-left: 0rem;
+}
+/* =======================Header Start============================== */
+.header {
+    position: absolute;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+}
+.header.scrolled {
+    background-color: #000000; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+a.nav-link {
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+}
+.nav-item {
+    padding-left: 15px;
+}
+.navbar-brand{
+    filter: brightness(0) invert(1);
+}
+.logo{
+    width: 110px;
+}
+.navbar-toggler-icon {
+    position: relative;
+    width: 28px;
+    height: 3px;
+    background: #fff;
+    content: '';
+    border-radius: 4px;
+}
+
+.navbar-toggler-icon::before, .navbar-toggler-icon::after {
+    width: 28px;
+    height: 3px;
+    background: #fff !important;
+    transition: all .3s ease-in;
+    content: '';
+    position: absolute;
+    left: 0;
+    border-radius: 4px;
+}
+
+.navbar-toggler-icon::before {
+    top: 10px;
+}
+
+[aria-expanded = "true"] .navbar-toggler-icon::before {
+    transform: rotate(-45deg);
+    background: #fff !IMPORTANT;
+    top: -1px;
+}
+[aria-expanded = "true"] .navbar-toggler-icon::after {
+    transform: rotate(45deg);
+    background: #fff !IMPORTANT;
+    top: -1px;
+}
+[aria-expanded = "true"] .navbar-toggler-icon {background: transparent;}
+.navbar-toggler-icon::after {
+    top: -10px;
+}
+/* ===============================NAVBAR END===============================*/
+.hero-container {
+    position: relative;
+    height: 550px;
+    top: -67px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -9;
+}
+.hero-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5);
+}
+.background-banner{
+    width: 100%;
+    height: 550px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    z-index: -9; 
+    filter: brightness(0.5);
+}
+.banner-content {
+    text-align: center;
+    color: white;
+    margin-top: 67px;
+}
+.banner-heading{
+    font-size: 35px;
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+}
+.banner-content p{
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+/* ===============================BANNER END===============================*/
+.overview{
+    display: flex;
+    flex-wrap: wrap;
+}
+.overview-image {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 10px;
+    position: relative;
+    height: 100%;
+}
+.overview-left-image{
+    width: 50%;
+    padding: 15px 5px 15px 10px;
+    animation: upDown 2s infinite;
+    -webkit-animation: mover 3s infinite alternate;
+    animation: mover 3s infinite alternate;
+    height: 440px;
+}
+.right-image, .left-image{
+    width: 100%;
+    border-radius: 20px;
+    height: 100%
+}
+.experience-img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    text-align: center;
+    border: 2px solid red;
+    display: flex;
+}
+.experience-img h3 {
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+.overview-right-image {
+    margin-top: 50px;
+    padding: 15px 10px 15px 10px;
+    width: 50%;
+    -webkit-animation: down-up 3s infinite alternate; 
+    animation: down-up 3s infinite alternate;
+    height: 440px;
+}
+.overview-content {
+    width: 50%;
+    padding: 0px 10px 20px 15px;
+}
+.overview-heading h2 {
+    font-size: 45px;
+    margin-top: 10px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+}
+.overview-subheading h2 {
+    font-weight: 600
+}
+.overview-subheading-content ul li{
+    list-style: none;
+    padding-top: 10px;
+}
+.overview-subheading-content ul{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+/*=================================Overview End=============================*/
+.neighborhood-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.neigborhood-content{
+    width: 50%;
+    padding: 10px 15px;
+}
+.neigborhood-content h2{
+    font-weight: 700;
+}
+.neighborhood-image{
+    width: 50%;
+    padding: 15px;
+    box-shadow: 1px 1px 1px 1px rgb(223, 223, 223);
+    height: 400px;
+    
+}
+.neighborhood-img{
+    width: 100%;
+    height: 100%;
+}
+.neighborhood-container ul {
+    list-style: none;
+    padding-left: 0;
+}
+.neighborhood-container ul li{
+    padding-top: 10px;
+}
+/* ======================================Neighborhood Container End================================ */
+.property-heading h3{
+    text-align: center;
+    font-size: 35px;
+    font-weight: 700;
+    padding-top: 25px;
+}
+.property-image img{
+    width: 100%;
+    position: relative;
+}
+.property-container-flex{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+.property-content {
+    position: absolute;
+    background-color: white;
+    padding: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    list-style: none;
+    right: 0px;
+    width: 55%;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, .1);
+}
+.property-image{
+    width: 55%;
+    height: 100%;
+    padding: 10px;
+    /* box-shadow: 1px 1px 2px 2px rgb(223, 223, 223); */
+}
+.property-content h4{
+    padding-bottom: 10px;
+    font-size: 25px;
+    font-weight: 600;
+}
+.property-content-loop{
+    margin-top: 15px;
+    list-style: none;
+}
+
+.property-content-container li:nth-child(even) .property-image {
+    margin-left: auto;
+}
+
+.property-content-container li:nth-child(even) .property-content {
+    left: 0%;
+}
+
+.property-content-loop + .property-content-loop {
+    margin-top: 20px;
+}
+.property-content button{
+    background-color: white;
+    border:2px solid rgba(174, 173, 173, 0.641) ;
+    padding: 8px 10px;
+    color: rgb(156, 156, 156);
+}
+/* ==================================Amenities section Start========================================================= */
+.amenities-heading{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.amenities-heading h4{
+    font-size: 50px;
+    font-weight: 600;
+}
+.amenities-box{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    box-shadow: 4px 4px rgb(223, 223, 223);
+    width: 100%;
+    border: 1px solid rgb(211, 210, 210);
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in;
+}
+.amenities-box:hover{
+    transform: translateY(-10px);
+}
+.amenities-icon{
+    height: 50px;
+    width: 50px;
+    background-color: rgb(244, 241, 241);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.amenities-icon img{
+    width: 70%;  
+}
+.amenities-content strong{
+    margin: 0;
+    padding-left: 8px;
+    font-size: 14px;
+}
+.amenities-item {
+    margin-bottom: 30px;
+    width: 25%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px 12px;
+}
+.amenities-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 15px;
+}
+/* =============================================amenities END================================================= */
+.what-to-do-heading{
+    text-align: center;
+}
+.what-to-do-heading h4{
+    font-size: 40px;
+    font-weight: 600;
+}
+.what-to-do-image{
+    width: 50%;
+    height: 380px;
+    box-shadow: 1px 1px 2px 2px rgb(223, 223, 223);
+}
+.what-to-do-image img{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+.what-to-do-info{
+    width: 50%;
+    padding: 20px 30px;
+}
+.what-to-do-info h4{
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.what-to-do-content{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top:10px ;
+}
+.fine-dining-content{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+.fine-dining-content li{
+    list-style: none;
+    
+}
+.what-to-do-section li:nth-child(even) {
+    flex-direction: row-reverse;
+}
+.what-to-do-content + .what-to-do-content {
+    margin-top: 20px;
+}
+/* ========================what to do content END============================== */
+.gallery-heading{
+    text-align: center;
+    margin: 20px;
+}
+.gallery-heading h4{
+    font-size: 40px;
+    font-weight: 600;
+}
+.gallery-images{
+    width: 25%;
+    height: 200px;
+    padding: 5px;
+    overflow: hidden;
+}
+.gallery-images img{
+    width: 100%;
+    height: 100%; 
+    transition: all 0.1s ease-in-out;
+    overflow: hidden;
+    filter: brightness(0.5);
+}
+.gallery-section{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+.gallery-images :hover{
+    filter: brightness(1);
+    cursor: pointer;
+    transform: scale(1.1);
+}
+/* ==============================-footer section start============-============ */
+.footer{
+    background-color: rgb(51, 50, 50);
+    margin-bottom: 0px;
+}
+.footer-section li{
+    list-style: none;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0px;
+}
+.footer-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 0px;
+}
+/* ===================Media Queries Section Start======================== */
+@media screen and (max-width: 991.50px){
+    .header {
+        position: absolute;
+        width: 100%;
+        transition: background-color 0.3s ease;
+        z-index: 1000;
+        background-color: black;
+    }
+    .navbar-collapse {
+        flex-basis: 100%;
+        flex-grow: 1;
+        background-color: black;
+    }
+}
+@media screen and (max-width: 767px){
+    .overview-image{
+        width: 100%;
+    }
+    .overview-content{
+        width: 100%;
+    }
+    .neighborhood-image{
+        width: 100%;
+    }
+    .neigborhood-content{
+        width: 100%;
+    }
+    .property-image{
+        width: 100%;
+    }
+    .property-content{
+        position: relative;
+        transform: translateY(0%);
+        width: 100%;
+    }
+    .amenities-item{
+        width: 50%;
+    }
+    .what-to-do-image{
+        width: 100%;
+    }
+    .what-to-do-info{
+        width: 100%;
+        padding: 20px 10px;
+    }
+    .amenities-list{
+        padding-left: 0px;
+    }
+    .gallery-images{
+        width: 50%;
+    }
+}
+@media screen and (max-width:420px) {
+    .amenities-item{
+        width: 100%;
+    }
+    .overview{
+        margin-top: -40px;
+    }
+    .overview-left-image, .overview-right-image{
+        height: 260px;
+    }
+    .overview-right-image{
+        margin-top: 20px;
+    }
+    .experience-img{
+        width: 100px;
+        height: 100px;
+    }
+    .experience-img h3{
+        font-size: 16px;
+    }
+    .footer-section li {
+        padding: 5px 10px;
+        text-align: center;
+    }
+    .neighborhood-image {
+        width: 100%;
+        height: 300px;
+    }
+    .what-to-do-image {
+        width: 100%;
+        height: 300px;
+    }
+    .footer-section{
+        align-items: center;
+        justify-content: center;
+    }
+}
+
